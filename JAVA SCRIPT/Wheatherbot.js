@@ -2,7 +2,7 @@ const request = require('request');
 
 const TelegramBot = require('node-telegram-bot-api');
 
-const token = '8182607707:AAHwNhi7ThkdvYIYape3KKl904Af9bZ4Y7Y';
+const token = 'TELEGRAM_BOT_TOKEN_HERE';
 
 const bot = new TelegramBot(token, {polling: true});
 
@@ -13,7 +13,7 @@ bot.on('message',(msg)=>{
     }
     
     else{
-        request('http://api.weatherapi.com/v1/current.json?key=2043a6156cdb47d295f184448241712&q='+msg.text+'&aqi=yes', function (error, response, body){
+        request('http://api.weatherapi.com/v1/current.json?key=API_KEY_HERE&q='+msg.text+'&aqi=yes', function (error, response, body){
             if(JSON.parse(body).error){
                 bot.sendMessage(msg.chat.id, "Data not found")
             }
