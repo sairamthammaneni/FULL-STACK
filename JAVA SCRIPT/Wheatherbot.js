@@ -13,7 +13,7 @@ bot.on('message',(msg)=>{
     }
     
     else{
-        request('http://api.weatherapi.com/v1/current.json?key=API_KEY_HERE&q='+msg.text+'&aqi=yes', function (error, response, body){
+        request('YOUR API WEBSITE?key=API_KEY_HERE&q='+msg.text+'&aqi=yes', function (error, response, body){
             if(JSON.parse(body).error){
                 bot.sendMessage(msg.chat.id, "Data not found")
             }
