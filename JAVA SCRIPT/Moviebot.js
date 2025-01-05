@@ -12,7 +12,7 @@ bot.on('message',(msg)=>{
         bot.sendMessage(msg.chat.id,"Hello,I am a Movie bot, Please Enter a movie name : ")
     }
     else{
-        request('http://www.omdbapi.com/?t='+msg.text+'&apikey=API_KEY_HERE', function (error, response, body){
+        request('Your API WEBSITE'+msg.text+'&apikey=API_KEY_HERE', function (error, response, body){
             if(JSON.parse(body).response=="False"){
                 bot.sendMessage(msg.chat.id, "Data not found")
             }
