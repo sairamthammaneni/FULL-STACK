@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Object Methods</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript RegExp (Regex) Object Methods</h1>
+
+    <p id="output">Original Text: "The quick brown fox jumps over the lazy dog"</p>
+
+    <button onclick="testRegex()">Test for 'fox'</button>
+    <button onclick="execRegex()">Find Word Starting with 'q'</button>
+    <button onclick="searchRegex()">Search for 'dog'</button>
+    <button onclick="replaceRegex()">Replace 'dog' with 'cat'</button>
+    <button onclick="matchRegex()">Find All 'o' Characters</button>
+
+    <script>
+        let sentence = "The quick brown fox jumps over the lazy dog";
+
+        function updateOutput(newText) {
+            document.getElementById("output").innerText = "Result: " + newText;
+        }
+
+        function testRegex() {
+            let regex = /fox/;
+            updateOutput("Contains 'fox': " + regex.test(sentence));
+        }
+
+        function execRegex() {
+            let regex = /\bq\w+/; // Word starting with 'q'
+            let result = regex.exec(sentence);
+            updateOutput("Matched Word: " + (result ? result[0] : "Not Found"));
+        }
+
+        function searchRegex() {
+            let index = sentence.search(/dog/);
+            updateOutput("Position of 'dog': " + index);
+        }
+
+        function replaceRegex() {
+            updateOutput(sentence.replace(/dog/, "cat"));
+        }
+
+        function matchRegex() {
+            let matches = sentence.match(/o/g);
+            updateOutput("All 'o' characters: " + matches);
+        }
+    </script>
+
+</body>
+</html>
