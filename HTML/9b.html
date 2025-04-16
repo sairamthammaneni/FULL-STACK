@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+            width: 150px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 18px;
+            border: 2px solid #007BFF;
+            background-color: #f0f8ff;
+            display: inline-block;
+            color: #007BFF;
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Number Operations</h1>
+    <input type="number" id="numberInput" placeholder="Enter a number">
+    <br>
+    <button onclick="findFactorial()">Factorial</button>
+    <button onclick="generateFibonacci()">Fibonacci</button>
+    <button onclick="findPrimeNumbers()">Prime Numbers</button>
+    <button onclick="checkPalindrome()">Palindrome</button>
+
+    <div id="output">Result will be displayed here.</div>
+
+    <script>
+        function getInput() {
+            return parseInt(document.getElementById("numberInput").value);
+        }
+
+        function findFactorial() {
+            let num = getInput();
+            if (isNaN(num) || num < 0) {
+                document.getElementById("output").innerHTML = "Please enter a valid non-negative number.";
+                return;
+            }
+            let fact = 1;
+            for (let i = 1; i <= num; i++) {
+                fact *= i;
+            }
+            document.getElementById("output").innerHTML = `Factorial of ${num} is ${fact}`;
+        }
+
+        function generateFibonacci() {
+            let num = getInput();
+            if (isNaN(num) || num < 0) {
+                document.getElementById("output").innerHTML = "Please enter a valid non-negative number.";
+                return;
+            }
+            let fib = [0, 1];
+            while (fib[fib.length - 1] + fib[fib.length - 2] <= num) {
+                fib.push(fib[fib.length - 1] + fib[fib.length - 2]);
+            }
+            document.getElementById("output").innerHTML = `Fibonacci series up to ${num}: ${fib.join(", ")}`;
+        }
+
+        function findPrimeNumbers() {
+            let num = getInput();
+            if (isNaN(num) || num < 2) {
+                document.getElementById("output").innerHTML = "Please enter a number greater than 1.";
+                return;
+            }
+            let primes = [];
+            for (let i = 2; i <= num; i++) {
+                let isPrime = true;
+                for (let j = 2; j * j <= i; j++) {
+                    if (i % j === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    primes.push(i);
+                }
+            }
+            document.getElementById("output").innerHTML = `Prime numbers up to ${num}: ${primes.join(", ")}`;
+        }
+
+        function checkPalindrome() {
+            let numb = document.getElementById("numberInput").value;
+            if (numb === "") {
+                document.getElementById("output").innerHTML = "Please enter a valid number.";
+                return;
+            }
+            let reversed = numb.split("").reverse().join("");
+            let result = (numb === reversed) ? `~${numb} is a Palindrome` : `${numb} is NOT a Palindrome`;
+            document.getElementById("output").innerHTML = result;
+        }
+    </script>
+
+</body>
+
+</html>

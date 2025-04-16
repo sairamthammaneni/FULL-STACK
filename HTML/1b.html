@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working with Hyperlinks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HTML Hyperlinks Demonstration</h1>
+
+    <p>
+        Hyperlinks in HTML are created using the <code>&lt;a&gt;</code> tag with the <code>href</code> attribute to
+        specify the link destination.
+        The <code>target</code> attribute determines how the link is opened.
+    </p>
+
+    <!-- Basic Hyperlink -->
+    <h2>Basic Hyperlink</h2>
+    <p>
+        Visit the <a href="https://www.google.com" target="_self">Google</a> website.
+        (Opens in the same tab.)
+    </p>
+
+    <!-- Hyperlink with Target _blank -->
+    <h2>Open Link in a New Tab</h2>
+    <p>
+        Visit the <a href="https://www.wikipedia.org" target="_blank">Wikipedia</a> website.
+        (Opens in a new tab.)
+    </p>
+
+    <!-- Hyperlink to a Section in the Same Page 
+    //<h2>Link to a Section in the Same Page</h2>
+    //<p>
+      //  Jump to the <a href="#bottom">Bottom of the Page</a>.
+    //</p>-->
+
+    <!-- Hyperlink with Target _parent -->
+    <h2>Open Link in Parent Frame</h2>
+    <p>
+        If this page is inside a frame, visit <a href="https://www.example.com" target="_parent">Example</a> in the
+        parent frame.
+    </p>
+
+    <!-- Hyperlink with Target _top -->
+    <h2>Open Link in Full Window</h2>
+    <p>
+        Visit <a href="https://www.bbc.com" target="_top">BBC News</a> to load in the full browser window.
+    </p>
+    <!-- Hyperlink with Target _top
+    <h2 id="bottom">Bottom of the Page</h2>
+    <p>You have reached the bottom of the page!</p>-->
+
+</body>
+
+</html>
